@@ -10,7 +10,7 @@ class Cell {
     constructor(i, j) {
         this.i = i;
         this.j = j;
-        this.walls = [true, true, true, true];
+        this.walls = [true, true, true, true];//top, right, bottom, left
         this.visited = false;
     }
 
@@ -44,6 +44,14 @@ class Cell {
         }
     }
 
+    highlight(){
+        let x = this.i * w;
+        let y = this.j * w;
+        noStroke()
+        fill('blue')
+        rect(x,y,w,w)
+    }
+
     show() {
         let x = this.i * w;
         let y = this.j * w;
@@ -66,6 +74,7 @@ class Cell {
             line(x, y + w, x, y);
         }
         if (this.visited) {
+            noStroke()
             fill(255, 0, 0);
             rect(x, y, w, w);
         }
