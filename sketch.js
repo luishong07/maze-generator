@@ -1,13 +1,14 @@
 let cols;
 let rows;
 
-let w = 40;
+let w = 20;
 let grid = [];
 let current;
-
+let stack = []
 function setup() {
-    createCanvas(400, 400);
-    // put setup code here
+    // createCanvas(400, 400);
+	createCanvas(1000,1000)
+	// put setup code here
     cols = width / w;
     rows = height / w;
     for (let j = 0; j < rows; j++) {
@@ -32,10 +33,14 @@ function draw() {
     let next = current.checkNeighbors();
     // console.log(next)
     if (next) {
+
         next.visited = true;
+		stack.push(current)
         removeWall(current, next);
         current = next;
-    }
+    }else if(stack.length > 0){
+		current = stack.pop()
+	}
 }
 
 const removeWall = (a, b) => {
