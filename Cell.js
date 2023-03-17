@@ -7,7 +7,7 @@ const index = (i, j) => {
 };
 
 class Cell {
-    constructor(i, j) {
+    constructor(i, j,v) {
         this.i = i;
         this.j = j;
         this.walls = [true, true, true, true];//top, right, bottom, left
@@ -16,7 +16,7 @@ class Cell {
         this.g = random(255)
         this.b = random(255)
         // console.log(index(i,j)+1)
-        this.v = index(i,j)+1
+        this.v = v
     }
 
     checkNeighbors() {
@@ -56,9 +56,10 @@ class Cell {
         fill('blue')
         rect(x,y,w,w)
         // console.log(stack.length == 0)
-        // if(stack.length == 0){
-        //     fill('red')
-        // }
+        if(stack.length == 0){
+            fill('red')
+        }
+        // noLoop()
     }
 
     show() {

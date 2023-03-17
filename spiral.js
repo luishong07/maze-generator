@@ -11,9 +11,11 @@ function setup() {
 	// put setup code here
     cols = width / w;
     rows = height / w;
+    let v = 1
     for (let j = 0; j < rows; j++) {
         for (let i = 0; i < cols; i++) {
-            let cell = new Cell(i, j);
+            let cell = new Cell(i, j,v);
+            v++
             grid.push(cell);
         }
     }
@@ -30,14 +32,14 @@ function draw() {
 
     }
     current.visited = true;
-	// current.highlight()
+	current.highlight()
     let next = current.checkNeighbors();
     // console.log(next)
     if (next) {
 
         next.visited = true;
 		stack.push(current)
-        removeWall(current, next);
+        // removeWall(current, next);
         current = next;
     }else if(stack.length > 0){
 		current = stack.pop()
