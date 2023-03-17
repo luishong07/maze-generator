@@ -12,6 +12,11 @@ class Cell {
         this.j = j;
         this.walls = [true, true, true, true];//top, right, bottom, left
         this.visited = false;
+        this.r = random(255)
+        this.g = random(255)
+        this.b = random(255)
+        // console.log(index(i,j)+1)
+        this.v = index(i,j)+1
     }
 
     checkNeighbors() {
@@ -50,6 +55,10 @@ class Cell {
         noStroke()
         fill('blue')
         rect(x,y,w,w)
+        // console.log(stack.length == 0)
+        // if(stack.length == 0){
+        //     fill('red')
+        // }
     }
 
     show() {
@@ -79,8 +88,10 @@ class Cell {
         }
         if (this.visited) {
             noStroke()
-            fill(255, 0, 0);
-            rect(x, y, w, w);
+            fill(this.r, this.g, this.b);
+            // rect(x, y, w, w);
+            textSize(40)
+            text(this.v,x + w/2,y + w/2)
         }
     }
 }

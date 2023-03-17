@@ -1,13 +1,13 @@
 let cols;
 let rows;
 
-let w = 40;
+let w = 200;
 let grid = [];
 let current;
 let stack = []
 function setup() {
     // createCanvas(800, 800);
-	createCanvas(800,800)
+	createCanvas(1000,1000)
 	// put setup code here
     cols = width / w;
     rows = height / w;
@@ -18,6 +18,7 @@ function setup() {
         }
     }
     current = grid[0];
+    console.log(grid)
 }
 
 function draw() {
@@ -29,7 +30,7 @@ function draw() {
 
     }
     current.visited = true;
-	current.highlight()
+	// current.highlight()
     let next = current.checkNeighbors();
     // console.log(next)
     if (next) {
