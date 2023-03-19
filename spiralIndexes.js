@@ -57,8 +57,6 @@ function MatrixToSpiral(arr, mat){
         for(let i = right; i >= left; i--){
             mat[bottom][i] = arr[index++]
             console.log(mat[bottom][i],bottom, i)
-
-
         }
         bottom--
 

@@ -12,13 +12,15 @@ function setup() {
     cols = width / w;
     rows = height / w;
     let v = 1
-    for (let j = 0; j < rows; j++) {
-        for (let i = 0; i < cols; i++) {
-            let cell = new Cell(i, j,v);
-            v++
-            grid.push(cell);
-        }
-    }
+    // for (let j = 0; j < rows; j++) {
+    //     for (let i = 0; i < cols; i++) {
+    //         let cell = new Cell(i, j,v);
+    //         v++
+    //         grid.push(cell);
+    //     }
+    // }
+
+    
     current = grid[0];
     console.log(grid)
 }

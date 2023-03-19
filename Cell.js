@@ -92,7 +92,9 @@ class Cell {
             fill(this.r, this.g, this.b);
             // rect(x, y, w, w);
             textSize(40)
-            text(this.v,x + w/2,y + w/2)
+            text(this.v,x + w/2 - 20,y + w/2 +20)
+            // stroke('red')
+            // point(x + w/2 - 20,y + w/2 +20)
         }
     }
 }
