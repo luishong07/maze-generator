@@ -58,6 +58,9 @@ class Cell {
         let left = grid[index(this.i - 1, this.j)];
         // console.log(index(this.i, this.j - 1))
         // noLoop();
+        // console.log(this.i , this.j)
+        // console.log(this.i, this.j)
+
         if (top && !top.visited) {
             neighbors.push(top);
         }
@@ -72,11 +75,17 @@ class Cell {
         }
         // console.log(neighbors.length)
         if (neighbors.length > 0) {
-            let r = floor(random(0, neighbors.length));
-            return neighbors[r];
+            // let r = floor(random(0, neighbors.length));
+            // console.log(this.v)
+            return grid[this.v];
         } else {
             return undefined;
         }
+    }
+
+    step(){
+        // console.log(grid[this.v].v)
+        return grid[this.v]
     }
 
     highlight() {
@@ -118,13 +127,24 @@ class Cell {
             line(x, y + w, x, y);
         }
         if (this.visited) {
-            noStroke();
-            fill(this.r, this.g, this.b);
-            // rect(x, y, w, w);
-            textSize(40);
-            text(this.v, x + w / 2 - 20, y + w / 2 + 20);
-            // stroke('red')
-            // point(x + w/2 - 20,y + w/2 +20)
+            if(this.i == this.j){
+                noStroke();
+                fill(255,0,0)
+                textSize(60);
+                text(this.v, x + w / 2 - 20, y + w / 2 + 20);
+                // noFill()
+                ellipse(w/2)
+            }else{
+
+                noStroke();
+                fill(this.r, this.g, this.b);
+                // rect(x, y, w, w);
+                textSize(40);
+                text(this.v, x + w / 2 - 20, y + w / 2 + 20);
+                // stroke('red')
+                // point(x + w/2 - 20,y + w/2 +20)
+            }
         }
+        
     }
 }

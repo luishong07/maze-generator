@@ -55,7 +55,7 @@ function setup() {
     // put setup code here
     cols = width / w;
     rows = height / w;
-
+    frameRate(5)
     // for (let j = 0; j < rows; j++) {
     //     for (let i = 0; i < cols; i++) {
     //         let cell = new Cell(i, j,v);
@@ -85,10 +85,11 @@ function draw() {
         grid[i].show();
     }
     current.visited = true;
-    current.highlight();
-    let next = current.checkNeighbors();
-    console.log(next)
-
+    // current.highlight();
+    // let next = current.checkNeighbors();
+    let next = current.step()
+    // console.log(next)
+    current.step()
     if (next) {
         next.visited = true;
         stack.push(current);
